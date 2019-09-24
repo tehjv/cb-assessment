@@ -1,0 +1,9 @@
+<mat-toolbar class="container">
+  <span>My Application</span>
+  <ng-template [ngIf]="loggedIn">
+    <span class="filler"></span>
+    <span>Articles</span>
+    <span>New</span>
+    <span (click)="onLogout()">Logout</span>
+  </ng-template>
+</mat-toolbar>
