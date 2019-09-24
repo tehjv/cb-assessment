@@ -1,6 +1,19 @@
 <div>
-  <form>
-
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="search-group">
+      <div class="search-result-group" *ngIf="filtered">
+        <label>{{getResultTxt()}}</label>
+        <button type="button" (click)="onClearFilter()">Clear Filter</button>
+      </div>
+      <div *ngIf="!filtered"></div>
+      <div class="search-control-group">
+        <input type="text" id="keyword" formControlName="keyword" placeholder="Search for...">
+        <select formControlName="field">
+          <option *ngFor="let searchField of searchFields" [value]="searchField.key">{{searchField.label}}</option>
+        </select>
+        <button class="" type="submit" [disabled]="!searchForm.valid">Submit</button>
+      </div>
+    </div>
   </form>
 </div>
 <div class="container">

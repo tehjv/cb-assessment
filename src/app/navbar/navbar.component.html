@@ -2,8 +2,8 @@
   <span>My Application</span>
   <ng-template [ngIf]="loggedIn">
     <span class="filler"></span>
-    <span>Articles</span>
-    <span>New</span>
+    <span><a routerLink="/articles">Articles</a></span>
+    <span><a routerLink="/new">New</a></span>
     <span (click)="onLogout()">Logout</span>
   </ng-template>
 </mat-toolbar>
