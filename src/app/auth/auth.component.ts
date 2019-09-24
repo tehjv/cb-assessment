@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,7 @@ import { HttpService } from '../http.service';
 export class AuthComponent implements OnInit {
   loginForm: FormGroup;
   isValid: boolean = true;
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -32,9 +33,8 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value)
     if (this.httpService.validateUser(this.loginForm.value)) {
-      console.log("VALIDDDD")
+      this.router.navigate(['/articles']);
     } else {
       this.isValid = false;
     }

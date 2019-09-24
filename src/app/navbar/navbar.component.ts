@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { HttpService } from '../http.service';
 export class NavbarComponent implements OnInit {
   loggedIn: boolean;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     this.httpService.user.subscribe(value => {
@@ -23,5 +24,6 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.httpService.logUserOut();
+    this.router.navigate(['/login']);
   }
 }

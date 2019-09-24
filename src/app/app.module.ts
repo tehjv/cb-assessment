@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgmatModule } from './ngmat/ngmat.module';
+import { ArticlesComponent } from './articles/articles.component';
+import { ArticleComponent } from './articles/article/article.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
