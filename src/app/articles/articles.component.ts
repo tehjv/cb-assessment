@@ -36,11 +36,12 @@ export class ArticlesComponent implements OnInit {
       this.posts = posts;
       this.allPosts = posts;
     });
-    this.httpService.fetchArticles();
+    if (!this.httpService.posts) { //enables viewing of created/updated articles. reverts to api endpoint date when refreshed locally(no spinning reload button).
+      this.httpService.fetchArticles();
+    }    
   }
 
   onSubmit() {
-    console.log(this.searchForm.value)
     this.posts = this.allPosts.filter(e => e[this.searchForm.value.field] == this.searchForm.value.keyword);
     this.filtered = true;
   }

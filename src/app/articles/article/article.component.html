@@ -5,7 +5,7 @@
   <mat-card-content>
     <p>{{post.body}}</p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Edit</button>
+  <mat-card-actions *ngIf="canEdit">
+    <button mat-button [routerLink]="'/edit/' + post.id">Edit</button>
   </mat-card-actions>
 </mat-card>

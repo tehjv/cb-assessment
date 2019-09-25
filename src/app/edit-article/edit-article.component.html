@@ -1,3 +1,18 @@
-<p>
-  edit-article works!
-</p>
+<div class="wrapper">
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <h4>{{getHeader()}}</h4>
+    <div>
+      <input type="text" id="title" formControlName="title" placeholder="Title">
+    </div>
+    <div></div>
+    <div>
+      <textarea id="body" formControlName="body" placeholder="Body"></textarea>
+    </div>
+    <div>
+      <span *ngIf="!isValid">Invalid credential!</span>
+    </div>
+    <div>
+      <button class="" type="submit" [disabled]="!articleForm.valid  || !articleForm.dirty">Submit</button>
+    </div>
+  </form>
+</div>

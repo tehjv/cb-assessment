@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
+
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-auth',
